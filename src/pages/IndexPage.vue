@@ -1,11 +1,35 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page class="column q-pa-md">
+    <authenticator>
+      <template v-slot="{ user, signOut }">
+        <div class="row justify-between items-center q-mb-md">
+          <h4 class="q-ma-none">My App</h4>
+          <div v-if="user" class="row items-center q-gutter-md">
+            <q-chip color="positive" text-color="white" icon="check_circle">
+              {{ user.signInDetails?.loginId || user.username }}
+            </q-chip>
+            <q-btn 
+              color="negative" 
+              label="Sign Out" 
+              @click="signOut"
+              size="sm"
+            />
+          </div>
+          <q-chip v-else color="warning" text-color="white" icon="warning">
+            Not Authenticated
+          </q-chip>
+        </div>
+
+        <div v-if="user" class="row items-center justify-evenly">
+          <example-component
+            title="Example component"
+            active
+            :todos="todos"
+            :meta="meta"
+          ></example-component>
+        </div>
+      </template>
+    </authenticator>
   </q-page>
 </template>
 
@@ -13,6 +37,10 @@
 import { ref } from 'vue';
 import type { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
+
+import { Authenticator } from '@aws-amplify/ui-vue';
+import '@aws-amplify/ui-vue/styles.css';
+
 
 const todos = ref<Todo[]>([
   {
