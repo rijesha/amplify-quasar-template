@@ -56,3 +56,4 @@ amplifytools.xcconfig
 
 .npm
 amplify_outputs.json
+.amplify

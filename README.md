@@ -1,4 +1,4 @@
-# Quasar App (amplify-quasar-template)
+# Amplify Gen2 Quasar App (amplify-quasar-template)
 
 ## Setup Instructions
 
@@ -8,46 +8,13 @@ Alternatively start a new quasar project repository and copy the `amplify` folde
 
 Now in the amplify web console start a new amplify project pointing at the repo you have just created. You can specify package versions in the build. This template requires Node 24 to build correctly.
 
+## Running Locally
+To run locally you will need the amplify_outputs.json from the cloud or run the program in a sandbox with 
+```npx ampx sandbox```
 
-## Adding Auth
+Then do your normal ```quasar dev``` You may need to call ```npm install``` or ```npm install --legacy-peer-deps``` first for the application to work.
 
 
-## Install the dependencies
+## Adding additional functionality
 
-```bash
-yarn
-# or
-npm install
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-
-```bash
-quasar dev
-```
-
-### Lint the files
-
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-### Format the files
-
-```bash
-yarn format
-# or
-npm run format
-```
-
-### Build the app for production
-
-```bash
-quasar build
-```
-
-### Customize the configuration
-
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+Follow the instruction [https://docs.amplify.aws/vue/](https://docs.amplify.aws/vue/) for details on how to use amplify gen 2.
